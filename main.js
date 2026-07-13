@@ -238,7 +238,7 @@
     }
     const subject = encodeURIComponent(`New project inquiry from ${name}`);
     const body = encodeURIComponent(`${message}\n\n— ${name} (${email})`);
-    window.location.href = `mailto:you@example.com?subject=${subject}&body=${body}`;
+    window.location.href = `mailto:lntombela159@gmail.com?subject=${subject}&body=${body}`;
     formStatus.textContent = "Opening your email client…";
     formStatus.className = "form-status success";
   });
