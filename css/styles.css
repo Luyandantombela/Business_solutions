@@ -457,11 +457,29 @@ ul {
 }
 
 .solutions-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  display: flex;
   gap: 22px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding-bottom: 12px;
+  scroll-snap-type: x proximity;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
+  scrollbar-color: var(--border-strong) transparent;
+}
+.solutions-grid::-webkit-scrollbar {
+  height: 8px;
+}
+.solutions-grid::-webkit-scrollbar-track {
+  background: transparent;
+}
+.solutions-grid::-webkit-scrollbar-thumb {
+  background: var(--border-strong);
+  border-radius: 999px;
 }
 .solution-card {
+  flex: 0 0 320px;
+  scroll-snap-align: start;
   background: var(--bg-elevated);
   border: 1px solid var(--border);
   border-radius: var(--radius-md);
@@ -812,9 +830,6 @@ form {
     margin-top: 10px;
   }
 
-  .solutions-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
   .process-grid {
     grid-template-columns: 1fr;
   }
@@ -835,8 +850,8 @@ form {
     flex-direction: column;
     align-items: stretch;
   }
-  .solutions-grid {
-    grid-template-columns: 1fr;
+  .solution-card {
+    flex-basis: 84vw;
   }
   .solutions-controls {
     flex-direction: column;
