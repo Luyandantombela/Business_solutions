@@ -34,6 +34,17 @@
         "url": "https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7478908960532598784?compact=1"
       },
       "order": 3
+    },
+    {
+      "title": "Column Matching & Merge Tool",
+      "description": "Matches records by ID across two sheets and pulls the matching columns from Sheet 2 into Sheet 1 — replacing manual VLOOKUP-style cross-referencing.",
+      "category": "Data Entry",
+      "technologies": ["Python"],
+      "video": {
+        "type": "linkedin",
+        "url": "https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7475578807970816003?compact=1"
+      },
+      "order": 4
     }
   ]
 }
