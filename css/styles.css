@@ -522,6 +522,13 @@ ul {
   border: none;
   object-fit: cover;
 }
+.solution-media--linkedin {
+  cursor: default;
+}
+.solution-media--linkedin iframe {
+  width: 100%;
+  height: 100%;
+}
 .solution-body {
   padding: 20px 22px 22px;
 }
