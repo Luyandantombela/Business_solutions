@@ -136,6 +136,10 @@
     } else if (video.type === "vimeo") {
       const id = extractVimeoId(url);
       inner = `<iframe src="https://player.vimeo.com/video/${id}?autoplay=1" title="Video preview" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen loading="lazy"></iframe>`;
+    } else if (video.type === "linkedin") {
+      // LinkedIn requires the special embed src copied from the post's
+      // "Embed this post" menu — not the normal linkedin.com/posts/ URL.
+      inner = `<iframe src="${escapeHtml(url)}" title="Video preview" allowfullscreen loading="lazy"></iframe>`;
     } else if (video.type === "mp4") {
       inner = `<video src="${escapeHtml(url)}" controls autoplay playsinline></video>`;
     } else {
