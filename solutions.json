@@ -1,0 +1,28 @@
+{
+  "solutions": [
+    {
+      "title": "Replace with your project title",
+      "description": "Replace with a short 1-2 sentence description of the problem this solved.",
+      "category": "Replace with a category (e.g. Finance, Reporting, Internal Tools)",
+      "technologies": ["Tech 1", "Tech 2"],
+      "thumbnail": "https://img.youtube.com/vi/lfvnOMsFk1k/hqdefault.jpg",
+      "video": {
+        "type": "youtube",
+        "url": "https://www.youtube.com/watch?v=lfvnOMsFk1k"
+      },
+      "order": 1
+    },
+    {
+      "title": "COPY THIS BLOCK for your next project",
+      "description": "Paste a new { } block like this one for every additional solution. Just change the values below.",
+      "category": "Category",
+      "technologies": ["Tech 1", "Tech 2"],
+      "thumbnail": "",
+      "video": {
+        "type": "youtube",
+        "url": ""
+      },
+      "order": 2
+    }
+  ]
+}
