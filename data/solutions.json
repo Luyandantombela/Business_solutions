@@ -45,6 +45,28 @@
         "url": "https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7475578807970816003?compact=1"
       },
       "order": 4
+    },
+    {
+      "title": "Multi-Sheet Data Combiner",
+      "description": "Merges data spread across multiple sheets — like separate January, February, March tabs — into one combined sheet, no manual copy-pasting required.",
+      "category": "Reporting",
+      "technologies": ["Python"],
+      "video": {
+        "type": "linkedin",
+        "url": "https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7475227171125379072?compact=1"
+      },
+      "order": 5
+    },
+    {
+      "title": "AI-Powered Data Cleaning Tool",
+      "description": "Cleans messy spreadsheet data using AI — fixing formatting, removing duplicates, and correcting invalid entries with less manual rule-setting than a traditional script.",
+      "category": "Data Entry",
+      "technologies": ["Python", "AI"],
+      "video": {
+        "type": "linkedin",
+        "url": "https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7477753207784595458?compact=1"
+      },
+      "order": 6
     }
   ]
 }
