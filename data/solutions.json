@@ -11,6 +11,18 @@
         "url": "https://www.youtube.com/watch?v=lfvnOMsFk1k"
       },
       "order": 1
+    },
+    {
+      "title": "Data Cleaning Tool",
+      "description": "Automatically fixes formatting, removes duplicates and stray whitespace, and flags invalid emails — turning a messy spreadsheet into clean, usable data in seconds.",
+      "category": "Data Entry",
+      "technologies": ["Python"],
+      "thumbnail": "https://img.youtube.com/vi/m1YpvkvyzwA/hqdefault.jpg",
+      "video": {
+        "type": "youtube",
+        "url": "https://www.youtube.com/watch?v=m1YpvkvyzwA"
+      },
+      "order": 2
     }
   ]
 }
