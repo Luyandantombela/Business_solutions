@@ -85,30 +85,41 @@
 
     const media = document.createElement("div");
     media.className = "solution-media";
-    media.setAttribute("role", "button");
-    media.setAttribute("tabindex", "0");
-    media.setAttribute("aria-label", "Play preview video for " + solution.title);
 
-    if (solution.thumbnail) {
-      media.innerHTML = `<img class="thumb" src="${escapeHtml(solution.thumbnail)}" alt="${escapeHtml(solution.title)} preview" loading="lazy" />`;
+    const isLinkedIn = solution.video && solution.video.type === "linkedin" && solution.video.url;
+
+    if (isLinkedIn) {
+      // LinkedIn's embed is already a self-contained preview (name, headline,
+      // like/share, thumbnail frame) — load it directly instead of hiding it
+      // behind a click-to-play fallback like YouTube/Vimeo.
+      media.classList.add("solution-media--linkedin");
+      embedVideo(media, solution.video);
     } else {
-      media.innerHTML = videoThumbFallbackSvg();
-    }
-    if (solution.video && solution.video.url) {
-      const playBtn = document.createElement("div");
-      playBtn.className = "play-btn";
-      playBtn.setAttribute("aria-hidden", "true");
-      playBtn.innerHTML = `<svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>`;
-      media.appendChild(playBtn);
+      media.setAttribute("role", "button");
+      media.setAttribute("tabindex", "0");
+      media.setAttribute("aria-label", "Play preview video for " + solution.title);
 
-      const playVideo = () => embedVideo(media, solution.video);
-      media.addEventListener("click", playVideo);
-      media.addEventListener("keydown", (e) => {
-        if (e.key === "Enter" || e.key === " ") {
-          e.preventDefault();
-          playVideo();
-        }
-      });
+      if (solution.thumbnail) {
+        media.innerHTML = `<img class="thumb" src="${escapeHtml(solution.thumbnail)}" alt="${escapeHtml(solution.title)} preview" loading="lazy" />`;
+      } else {
+        media.innerHTML = videoThumbFallbackSvg();
+      }
+      if (solution.video && solution.video.url) {
+        const playBtn = document.createElement("div");
+        playBtn.className = "play-btn";
+        playBtn.setAttribute("aria-hidden", "true");
+        playBtn.innerHTML = `<svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>`;
+        media.appendChild(playBtn);
+
+        const playVideo = () => embedVideo(media, solution.video);
+        media.addEventListener("click", playVideo);
+        media.addEventListener("keydown", (e) => {
+          if (e.key === "Enter" || e.key === " ") {
+            e.preventDefault();
+            playVideo();
+          }
+        });
+      }
     }
 
     const body = document.createElement("div");
