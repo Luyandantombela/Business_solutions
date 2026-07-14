@@ -203,9 +203,42 @@
       if (visible) visibleCount++;
     });
     noResults.classList.toggle("is-visible", visibleCount === 0);
+    grid.scrollTo({ left: 0 });
+    updateArrowState();
   }
 
   searchInput.addEventListener("input", applyFilters);
+
+  /* ------------------------------------------------------------------ */
+  /* Solutions carousel arrows                                           */
+  /* ------------------------------------------------------------------ */
+  const scrollPrevBtn = document.getElementById("scrollPrev");
+  const scrollNextBtn = document.getElementById("scrollNext");
+
+  function cardScrollStep() {
+    const card = grid.querySelector(".solution-card");
+    if (!card) return grid.clientWidth;
+    const gap = parseFloat(getComputedStyle(grid).columnGap || getComputedStyle(grid).gap || 0) || 0;
+    return card.getBoundingClientRect().width + gap;
+  }
+
+  function updateArrowState() {
+    const maxScroll = grid.scrollWidth - grid.clientWidth;
+    const atStart = grid.scrollLeft <= 4;
+    const atEnd = grid.scrollLeft >= maxScroll - 4;
+    const noOverflow = maxScroll <= 4;
+    scrollPrevBtn.disabled = atStart || noOverflow;
+    scrollNextBtn.disabled = atEnd || noOverflow;
+  }
+
+  scrollPrevBtn.addEventListener("click", () => {
+    grid.scrollBy({ left: -cardScrollStep(), behavior: "smooth" });
+  });
+  scrollNextBtn.addEventListener("click", () => {
+    grid.scrollBy({ left: cardScrollStep(), behavior: "smooth" });
+  });
+  grid.addEventListener("scroll", updateArrowState, { passive: true });
+  window.addEventListener("resize", updateArrowState);
 
   function renderSolutions(solutions) {
     allSolutions = [...solutions].sort((a, b) => (a.order || 0) - (b.order || 0));
@@ -216,6 +249,8 @@
     const categories = [...new Set(allSolutions.map((s) => s.category))];
     renderChips(categories);
     applyFilters();
+    updateArrowState();
+    grid.scrollTo({ left: 0 });
   }
 
   async function loadSolutions() {
