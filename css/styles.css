@@ -456,6 +456,55 @@ ul {
   color: var(--accent);
 }
 
+.solutions-carousel {
+  position: relative;
+}
+.carousel-arrow {
+  position: absolute;
+  top: 40%;
+  transform: translateY(-50%);
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg-elevated-2);
+  border: 1px solid var(--border-strong);
+  color: var(--text-primary);
+  box-shadow: 0 8px 20px -6px rgba(0, 0, 0, 0.5);
+  z-index: 5;
+  transition: background 0.18s ease, border-color 0.18s ease, opacity 0.18s ease, transform 0.18s ease;
+}
+.carousel-arrow:hover {
+  background: var(--accent-2);
+  color: #06110f;
+  border-color: var(--accent-2);
+}
+.carousel-arrow--prev {
+  left: -14px;
+}
+.carousel-arrow--next {
+  right: -14px;
+}
+.carousel-arrow[disabled] {
+  opacity: 0;
+  pointer-events: none;
+}
+@media (max-width: 640px) {
+  .carousel-arrow {
+    width: 38px;
+    height: 38px;
+    top: 34%;
+  }
+  .carousel-arrow--prev {
+    left: 4px;
+  }
+  .carousel-arrow--next {
+    right: 4px;
+  }
+}
+
 .solutions-grid {
   display: flex;
   gap: 22px;
