@@ -20,6 +20,22 @@
   document.addEventListener("scroll", onScroll, { passive: true });
   onScroll();
 
+  /* ------------------------------------------------------------------ */
+  /* Visit logging (sends page + referrer to a Google Sheet)             */
+  /* ------------------------------------------------------------------ */
+  const VISIT_LOGGER_URL = "https://script.google.com/macros/s/AKfycbzV0zy-ccAci3P4AZCdIkNXP4XGQq1ixZ1_XqxmveeHIRB1WrFOzoatCQcawO1lmAriNQ/exec";
+  fetch(VISIT_LOGGER_URL, {
+    method: "POST",
+    mode: "no-cors",
+    headers: { "Content-Type": "text/plain" },
+    body: JSON.stringify({
+      page: window.location.pathname,
+      referrer: document.referrer || "direct",
+    }),
+  }).catch(() => {
+    /* fail silently, a tracking hiccup should never break the site */
+  });
+
   const navToggle = document.getElementById("navToggle");
   const navDrawer = document.getElementById("navDrawer");
   navToggle.addEventListener("click", () => {
